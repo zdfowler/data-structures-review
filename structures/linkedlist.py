@@ -66,13 +66,12 @@ class LinkedList:
         return False
 
 l = LinkedList()
-l.firstValue = Node("Sunday")
-e2 = Node("Monday")
-e3 = Node("Tuesday")
-l.firstValue.next = e2
-e2.next = e3
+l.addToEnd("Sunday")
 l.addToEnd("Wednesday")
 l.addToStart("Saturday")
+l.print()
+l.addAfter("Sunday","Monday")
+l.addAfter("Monday","Tuesday")
 l.print()
 print(l.remove("Tuesday"))
 print(l.remove("Tuesday"))
