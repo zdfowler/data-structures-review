@@ -10,7 +10,8 @@ class LinkedList:
             print(item.item)
             item = item.next
 
-    def addToEnd(self,node):
+    def addToEnd(self,someValue):
+        node = Node(someValue)
         if self.firstValue is None:
             self.firstValue = node
             return True
@@ -20,32 +21,35 @@ class LinkedList:
         h.next = node
         return True
 
-    def addToStart(self,node):
+    def addToStart(self,someValue):
+        node = Node(someValue)
         node.next = self.firstValue
         self.firstValue = node
         return True
 
-    def findNode(self,nodeToFind):
+    def findNode(self,valueToFind):
         i = self.firstValue
         while i is not None:
-            if i.item == nodeToFind.item:
+            if i.item == valueToFind:
                 return i
             i = i.next
         return None
 
-    def addAfter(self,existingNode,newNode):
-        node = self.findNode(existingNode)
+    def addAfter(self,someValue,newNodeValue):
+        node = self.findNode(someValue)
         if node is not None:
+            newNode = Node(newNodeValue)
             newNode.next = node.next
             node.next = newNode
+            return True
         else:
-            print("Could not find",existingNode.item)
+            print("Could not find",someValue)
             return False
 
     def remove(self,needle):
         i = self.firstValue.next
         p = self.firstValue
-        if p.item == needle.item:
+        if p.item == needle:
             print("Found match at beginning")
             n = self.firstValue.next
             del self.firstValue
@@ -53,7 +57,7 @@ class LinkedList:
             return True
 
         while i is not None:
-            if i.item == needle.item:
+            if i.item == needle:
                 p.next = i.next
                 del i
                 return True
@@ -67,14 +71,14 @@ e2 = Node("Monday")
 e3 = Node("Tuesday")
 l.firstValue.next = e2
 e2.next = e3
-l.addToEnd(Node("Wednesday"))
-l.addToStart(Node("Saturday"))
+l.addToEnd("Wednesday")
+l.addToStart("Saturday")
 l.print()
-print(l.remove(Node("Tuesday")))
-print(l.remove(Node("Tuesday")))
-print(l.remove(Node("Saturday")))
+print(l.remove("Tuesday"))
+print(l.remove("Tuesday"))
+print(l.remove("Saturday"))
 l.print()
-l.addAfter(Node("Tuesday"),Node("Thursday"))
-l.addAfter(Node("Wednesday"),Node("Thursday"))
+l.addAfter("Tuesday","Thursday")
+l.addAfter("Wednesday","Thursday")
 
 l.print()
