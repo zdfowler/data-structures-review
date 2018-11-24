@@ -1,4 +1,4 @@
-from node import Node
+from .node import Node
 
 class LinkedList:
     def __init__(self):
@@ -65,19 +65,3 @@ class LinkedList:
             i = i.next
         return False
 
-l = LinkedList()
-l.addToEnd("Sunday")
-l.addToEnd("Wednesday")
-l.addToStart("Saturday")
-l.print()
-l.addAfter("Sunday","Monday")
-l.addAfter("Monday","Tuesday")
-l.print()
-print(l.remove("Tuesday"))
-print(l.remove("Tuesday"))
-print(l.remove("Saturday"))
-l.print()
-l.addAfter("Tuesday","Thursday")
-l.addAfter("Wednesday","Thursday")
-
-l.print()
